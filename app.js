@@ -3,12 +3,9 @@ const bp = require('body-parser');
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 const { redirect } = require('express/lib/response');
 // const fetch = require('node-fetch');
-
-
 const app = express();
 
 app.use(bp.urlencoded({extended:true}));
-
 app.get("/" , function(req , res){
   // html page
   res.sendFile(__dirname+"/index.html");
@@ -65,11 +62,7 @@ run();
 
 });
 
-
-
-  
-
-app.listen(6969 , function(){
+app.listen(process.env.PORT || 6969 , function(){
     console.log("running just fine");
 });
 
